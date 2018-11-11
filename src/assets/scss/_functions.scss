@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+@function color ($key){
+    @return map-get($map: $color, $key:$key );
+}
+
+@function fontSize($key){
+    @return map-get($map: $fontSize, $key:$key );
+}
+
+@function fontColor($key){
+    @return map-get($map: $fontColor, $key:$key );
+}

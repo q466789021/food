@@ -1,0 +1,174 @@
+@import './_mixin.scss';
+
+.home{
+
+   .topheader{
+   
+    .left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: $offset/2;
+        i{
+            font-size: 1.5em;
+        }
+    }
+    .center{
+        width: 100%;
+        position: relative;
+        i{
+            position: absolute;
+            font-size: 1.5em;
+            left: 8px;
+            top: 8px;
+            color:#ccc;
+        }
+        input{
+            width: 100%;
+            height: 46px;
+            border-radius: 8px;
+           text-indent: 2em;
+        }
+    }
+    .right{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: $offset/2;
+        i{
+            font-size: 1.5em;
+        }
+    }
+   }
+   .banner{
+      img{
+          width: 100%;
+      }
+   }
+   .main-nav{
+       display: flex;
+       justify-content: space-around;
+       padding: $offset 0;
+       margin: $offset 0;
+       background: #fff;
+      .item{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .pic{
+              width: 88px;
+              margin-bottom: 27px;
+              img{
+                  width: 100%;
+              }
+          }
+          span{
+              font-size: fontSize(24)
+          }
+      }
+   }
+   .activity{
+       background: #fff;
+       padding-bottom: $offset;
+        .top{
+            padding: $offset;
+            display:flex;
+            .vip{
+                h3{
+                    color:color(orange); 
+                    font-size: fontSize(28);
+                }
+                p{
+                  font-size: fontSize(20);
+                  margin-top: 13px;
+                  margin-bottom: $offset;
+                  color: fontColor(deepGray)
+                }
+            }
+            .week{
+                margin-left: $offset;
+                h3{
+                    color:color(blue); 
+                    font-size: fontSize(28);
+                }
+                p{
+                  font-size: fontSize(20);
+                  margin-top: 13px;
+                  margin-bottom: $offset;
+                  color: fontColor(deepGray)
+                }
+            }
+            .special-offer{
+                margin-left: $offset;
+                h3{
+                    color:color(yellow); 
+                    font-size: fontSize(28);
+                }
+                p{
+                  font-size: fontSize(20);
+                  margin-top: 13px;
+                  margin-bottom: $offset;
+                  color: fontColor(deepGray)
+                }
+            }
+            .item{
+                display: flex;
+                flex-direction: column;
+                    flex: 1;
+                img{
+                    width: 100%;
+                    height: 218px;
+                    
+                }
+            }
+        }
+        .bottom{
+            padding: 0 $offset;
+            display: flex;
+            .time-limit{
+               
+                flex: 2;
+                h3{
+                    color:color(deepBlue)
+                }
+                p{
+                    margin-top: 14px;
+                    margin-bottom: $offset;
+                    color: color(orange);
+                    span{
+                        color: color(orange)
+                    }
+                }
+               img{
+                   width: 100%;
+               }
+            }
+            .coupon{
+                margin-left: $offset;
+               
+                flex: 1;
+                h3{
+                    color: color(orange)
+                }
+                p{
+                    margin-top: 14px;
+                    margin-bottom: $offset;
+                    color: fontColor(gray)
+                }
+                img{
+                    width: 100%;
+                }
+            }
+        }
+   }
+   .every,
+   .like{
+       margin-top: $offset;
+       padding: $offset;
+       background: #fff;
+       h3{
+        font-size: fontSize(28);
+        padding-bottom: $offset;
+       }
+   }
+}
