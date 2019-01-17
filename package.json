@@ -2,7 +2,7 @@
   "name": "food-project",
   "version": "1.0.0",
   "description": "food",
-  "author": "Rihel <569843207@qq.com>",
+  "author": "q466789021 <466789021@qq.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
