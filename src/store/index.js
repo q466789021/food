@@ -11,14 +11,14 @@ export default new Vuex.Store({
         token: '',
         userInfo: {},
         orderList: [],
-        addrdee:null
+        addrdee: null
     },
     getters: {
-        hasAddress(state){
-            return state.userInfo.addressList && state.userInfo.addressList.length>0;
+        hasAddress(state) {
+            return state.userInfo.addressList && state.userInfo.addressList.length > 0;
 
         },
-        addressList(state){
+        addressList(state) {
             return state.userInfo.addressList
         },
         // defaultAddress(state,{addressList}){
@@ -45,46 +45,46 @@ export default new Vuex.Store({
             return state.orderList.filter(order => order.status === ORDER_SATUS.TAIL.CODE);
         }
     },
+    actions: {
+        login({ commit, dispatch }, data) {
+            return new Promise((resolve, reject) => {
+                Vue.prototype.$http.login(data).then(data => {
+                    commit('setToken', data.token);
+                    commit('setUserInfo', data.userInfo);
+
+                    return dispatch('getOrderList', {
+                        id: data.userInfo.id,
+                        token: data.token
+                    })
+                }).then(() => {
+                    resolve()
+                }, () => {
+                    reject()
+                })
+            })
+        },
+        getOrderList({ commit }, { id, token }) {
+            return new Promise((resolve, reject) => {
+                Vue.prototype.$http.getOrderList(id, token).then(data => {
+                    commit('setOrderList', data);
+                    resolve();
+                }, () => {
+                    reject()
+                })
+            })
+        }
+    },
     mutations: {
         setToken(state, value) {
             state.token = value
         },
         //用户数据
-        setUserInfo(state,value){
-            state.userInfo=value
+        setUserInfo(state, value) {
+            state.userInfo = value
         },
         //订单列表
-        setOrderList(state,value){
-            state.orderList=value
-        }
-    },
-    actions:{
-        login({commit,dispatch},data){
-            return new Promise((resolve,reject)=>{
-                Vue.prototype.$http.login(data).then(data=>{
-                    commit('setToken',data.token);
-                    commit('setUserInfo',data.userInfo);
-
-                    return dispatch('getOrderList',{
-                        id:data.userInfo.id,
-                        token:data.token
-                    })
-                }).then(()=>{
-                    resolve()
-                },()=>{
-                    reject()
-                })
-            })
-        },
-        getOrderList({commit},{id,token}){
-            return new Promise((resolve,reject)=>{
-                Vue.prototype.$http.getOrderList(id,token).then(data=>{
-                    commit('setOrderList',data);
-                    resolve();
-                },()=>{
-                    reject()
-                })
-            })
+        setOrderList(state, value) {
+            state.orderList = value
         }
     }
 })
